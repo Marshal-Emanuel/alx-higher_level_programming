@@ -1,8 +1,3 @@
-/*
- * File: 100-print_python_list_info.c
- * Auth: Zewdu
- */
-
 #include <Python.h>
 
 /**

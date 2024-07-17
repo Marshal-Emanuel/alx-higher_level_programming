@@ -1,17 +1,15 @@
-/*
-* File:13-insert_number.c
-* uth: Zewdu
- */
-
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 
+/****************************START*****************************/
 /**
- * insert_node - Inserts a number into a sorted singly-linked list.
- * @head: A pointer the head of the linked list.
- * @number: The number to insert.
+ * insert_node - function: inserts a number into a linked list
+ * @head: Points to the head of the linked lists
+ * @number: refers to the digit or number to insert
  *
- * Return: If the function fails - NULL.
- *         Otherwise - a pointer to the new node.
+ * Return: If fail - NULL.
+ *         Else - a pointer to the new node.
  */
 listint_t *insert_node(listint_t **head, int number)
 {
@@ -37,3 +35,4 @@ listint_t *insert_node(listint_t **head, int number)
 
 	return (new);
 }
+/*************************STOP*********************************/

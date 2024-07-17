@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-"""
-Module 0-square
-Define a square
-"""
+"""Square class"""
 
 
-class Square:
-    """created empty class"""
+class Square():
+    """Empty class created by program"""
     pass

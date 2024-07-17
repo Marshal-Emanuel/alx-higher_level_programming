@@ -1,36 +1,39 @@
 #!/usr/bin/python3
-"""Module 5-square"""
+"""Defining a class Square"""
 
 
 class Square:
-    """created class"""
-    def __init__(self, size=0):
-        """private instance attribute - size"""
-        if type(size)is not int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+    """Defining a class Squate"""
+    def __init__(self, size):
+        """Initialize a new square.
+
+        Args:
+            size (int): Size of new Square.
+        """
+        self.__size = size
 
     @property
     def size(self):
-        """"getter"""
-        return self.__size
+        """Function retrieves a Square"""
+        return(self.__size)
 
     @size.setter
     def size(self, value):
-        """Setter"""
-
-        if type(value) is not int:
+        """Set properties of new Square"""
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     def area(self):
-        return (self.__size)**2
+        """Return area of Square"""
+        return(self.__size * self.__size)
 
     def my_print(self):
-        print("\n".join(["#" * self.__size for rows in range(self.__size)]))
+        """Prints output in stdout"""
+        for i in range(0, self.__size):
+            [print("#", end="") for j in range(self.__size)]
+            print("")
+        if self.__size == 0:
+            print("")

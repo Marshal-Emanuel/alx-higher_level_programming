@@ -1,23 +1,22 @@
 #!/usr/bin/python3
 """
-a script that takes in an argument and displays all
-values in the states table of hbtn_0e_0_usa where
-name matches the argument, safe from SQL Injection
-hbtn_0e_0_usa is to be created by 0-select_states.sql
+Displays all values in the states table of the database hbtn_0e_0_usa
+whose name matches that supplied as argument.
+Usage: ./2-my_filter_states.py <mysql username> \
+                               <mysql password> \
+                               <database name> \
+                               <state name searched>
 """
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost",
-                         port=3306,
-                         user=argv[1],
-                         password=argv[2],
-                         database=argv[3])
-    cursor = db.cursor()
-    qry = """SELECT * FROM states WHERE name=%s ORDER BY id ASC"""
-    cursor.execute(qry, (argv[4],))
-    for i in cursor.fetchall():
-        print(i)
-    db.close()
+    """
+    Access to the database and get the states
+    from the database.
+    """
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("SELECT * FROM `states`")
+    [print(state) for state in c.fetchall() if state[1] == sys.argv[4]]

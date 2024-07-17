@@ -1,17 +1,14 @@
 #!/usr/bin/python3
-# 102-magic_calculation.py
-# Zewdu <zewduw@ymail.com>
-
 
 def magic_calculation(a, b):
-    result = 0
-    for i in range(1, 3):
+    p = 0
+    for x in range(1, 3):
         try:
-            if i > a:
+            if x > a:
                 raise Exception('Too far')
             else:
-                result += a ** b / i
-        except:
-            result = b + a
+                p += a ** b / x
+        except Exception:
+            p = b + a
             break
-    return (result)
+    return (p)

@@ -12,7 +12,7 @@ scripting. The specific list of projects contained follows:
 
 ## Author :
 
-* **PRECIOUS NWAIGBO** <[Tactical98](https://github.com/Tactical98)>
+* **Emanuel Marshal** <[Marshal](https://github.com/Marshal-Emanuel)>
 
 ## Acknowledgements :pray:
 

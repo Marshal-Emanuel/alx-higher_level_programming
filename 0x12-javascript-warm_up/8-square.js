@@ -1,11 +1,11 @@
 #!/usr/bin/node
-const myNum = parseInt(process.argv[2], 10);
-if (isNaN(myNum)) {
+const { argv } = require('process');
+const size = Number(argv[2]);
+const repeat = 'X'.repeat(size);
+if (isNaN(size)) {
   console.log('Missing size');
 } else {
-  let i = myNum;
-  while (i > 0) {
-    console.log('X'.repeat(myNum));
-    i--;
+  for (let i = 0; i < size; i++) {
+    console.log(repeat);
   }
 }

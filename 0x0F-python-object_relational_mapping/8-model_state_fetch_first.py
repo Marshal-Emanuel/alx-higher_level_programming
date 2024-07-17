@@ -1,28 +1,25 @@
 #!/usr/bin/python3
 """
-return the first state object from database via python
-parameters given to script: username, password, database
+Prints the first State object from the database hbtn_0e_6_usa.
+Usage: ./8-model_state_fetch_first.py <mysql username> /
+                                      <mysql password> /
+                                      <database name>
 """
 
-from sys import argv
-from model_state import Base, State
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from model_state import State
 
 if __name__ == "__main__":
-    user = argv[1]
-    passwd = argv[2]
-    db = argv[3]
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                           format(user, passwd, db), pool_pre_ping=True)
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                           pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
+    state = session.query(State).order_by(State.id).first()
 
-    instance1 = session.query(State).order_by(State.id).first()
-    if instance1:
-        print("{:d}: {:s}".format(instance1.id, instance1.name))
-
-    else:
+    if state is None:
         print("Nothing")
-    session.close()
+    else:
+        print("{}: {}".format(state.id, state.name))

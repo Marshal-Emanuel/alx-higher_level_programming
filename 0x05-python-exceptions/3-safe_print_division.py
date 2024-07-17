@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-# 3-safe_print_division.py
-# Zewdu <zewduw@ymail.com>
-
 
 def safe_print_division(a, b):
-    """Returns the division of a by b."""
+    """Returns the result of the ivision a/b"""
     try:
-        div = a / b
+        d = a / b
     except (TypeError, ZeroDivisionError):
-        div = None
+        d = None
     finally:
-        print("Inside result: {}".format(div))
-    return (div)
+        print("Inside result: {}".format(d))
+    return (d)

@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-"""
-Module 3-say_my_name
-Prints the first and last name
-Returns the name in str
-"""
+"""Defining a function say_my_name"""
 
 
 def say_my_name(first_name, last_name=""):
+    """Printing first & last name.
+        Arguments:
+            @first_name: First name to be printed.
+            @second_name: Last name to be printed.
     """
-    Returns the first and last name as long as they are str
-    """
-    if not isinstance(first_name, str):
+
+    if type(first_name) is not str:
         raise TypeError("first_name must be a string")
-    elif not isinstance(last_name, str):
+    if type(last_name) is not str:
         raise TypeError("last_name must be a string")
-    else:
-        print("My name is {:s} {:s}".format(first_name, last_name))
+    print("My name is {} {}".format(first_name, last_name))
